@@ -7,7 +7,7 @@ E.g. urllib2 has [lots of boilerplate code](https://gist.github.com/kennethreitz
 E.g. [python-social-auth document common use-cases](http://python-social-auth-docs.readthedocs.io/en/latest/use_cases.html)
 - [ ] Practice [Progressive disclosure](https://en.wikipedia.org/wiki/Progressive_disclosure): have sane and smart defaults
   * - [ ] Have default arguments and decide their values according to the most common use cases
-  * - [ ] Have default settings and decide their values them according to the most common use cases
+  * - [ ] Have default settings and decide their values according to the most common use cases
   * - [ ] Decide argument order by listing the most used ones first and grouping related ones together
   E.g. JavaScript [`history.pushState`](https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method) has bad default argument order: `state, title, URL`. Most API clients just want to add a URL to the history and they're forced to specify state and title.
   * - [ ] Don't require copy and pasting of code snippets
