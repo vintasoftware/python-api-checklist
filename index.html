@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <title>Python API Checklist</title>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5XC946B');</script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="shortcut icon" href="/assets/favicon.jpg" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.3.1/markdown-it.min.js"></script>
+  <script src="/markdown-it-task-lists.min.js"></script>
+
+  <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+
+  <style type="text/css">
+    body {
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #eee;
+      padding-top: 0px;
+      font-size: 18px;
+      line-height: 1.42857143;
+      color: #0C4B33;
+    }
+
+    .special-bg {
+      background: inherit;
+      padding: 0;
+      margin: 0;
+    }
+
+    .special-bg .task-list li {
+      padding: 0;
+      margin: 2rem 0
+    }
+
+    input[type=checkbox], input[type=radio] {
+      margin: 4px 0 0;
+      margin-top: 1px\9;
+      line-height: normal;
+    }
+
+    .checklist {
+      display: inline-block;
+    }
+
+    .checklist p {
+      margin-bottom: 0;
+    }
+
+    .checklist .task-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .checklist .task-list .task-list-item-checkbox {
+      height: 18px;
+      margin-right: 0.3em;
+    }
+
+    .logo {
+      margin: 6rem 0 3rem;
+      text-align: center;
+    }
+
+    .logo img {
+      max-width: 380px;
+      width: 100%;
+    }
+
+    footer {
+      margin-top: 4rem;
+      background: #333;
+    }
+
+    footer a {
+      color: #ccc;
+    }
+
+    footer p {
+      text-align: center;
+      color: #44B78B;
+      margin-top: 1rem;
+      font-size: 14px;
+    }
+
+    h1, h2, p {
+      color: #0C4B33;
+    }
+
+    li {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    p {
+      font-size: 25px;
+    }
+
+    a {
+      color: #333;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    h1 {
+      font-size: 46px;
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    h2 {
+      font-size: 34px;
+      border-bottom: 5px solid #0c4b33;
+      padding-bottom: 0;
+      margin-bottom: 3rem;
+      margin-top: 4rem;
+    }
+
+    ul li ul li {
+      background-color: rgba(0, 0, 0, 0.10);
+      padding: 2rem 3rem;
+      margin-top: 2rem;
+    }
+
+    .task-list-item {
+      background-color: inherit;
+    }
+  </style>
+</head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5XC946B"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <a href="https://github.com/vintasoftware/python-api-checklist/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+    <main role="main">
+      <div class="container">
+        <section class="checklist col-xs-12">
+          <div class="logo">
+            <img src="/assets/python-api-checklist.png" alt="Python API checklist">
+          </div>
+          <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+              <h1>
+                Checklist for<br/>
+                Python module APIs
+              </h1>
+              <p>Note: checkboxes below are saved in localStorage</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="checklist-content col-md-offset-1 col-md-10">
+              <article class="markdown-body entry-content" itemprop="text">
+                <div>Loading...</div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="col-xs-12">
+          <p>© 2017 - Maintained by <a href="https://www.vinta.com.br" target="_blank">Vinta Sofware</a> - Feel free to <a href="https://github.com/vintasoftware/python-api-checklist" target="_blank">contribute</a></p>
+        </div>
+      </div>
+
+    </footer>
+  </body>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      function bindCheckBehavior() {
+        var checkedsDict = localStorage.getItem('checkedsDict');
+        if (!checkedsDict || checkedsDict === '') {
+          checkedsDict = {};
+          localStorage.setItem('checkedsDict', JSON.stringify(checkedsDict));
+        } else {
+          checkedsDict = JSON.parse(checkedsDict);
+        }
+
+        var $items = $('.entry-content input.task-list-item-checkbox');
+        $items.each(function (i, item) {
+          var itemKey = $(item).parent().text();
+          if (checkedsDict[itemKey]) {
+            $(item).attr('checked', 'checked');
+          }
+        });
+
+        $('.entry-content input').on('change', function() {
+          var $items = $('.entry-content input');
+          var updatedCheckedsDict = {};
+          $items.each(function (i, item) {
+            var itemKey = $(item).parent().text();
+            if (this.checked) {
+              updatedCheckedsDict[itemKey] = true;
+            }
+          });
+
+          localStorage.setItem('checkedsDict', JSON.stringify(updatedCheckedsDict));
+        });
+      }
+
+      var md = window.markdownit({
+        'breaks': true,
+        'linkify': false
+      }).use(window.markdownitTaskLists, {enabled: true});
+
+      function renderChecklist() {
+        $.ajax('/checklist.md', {
+          method: 'GET',
+          dataType: 'text'
+        }).done(function (text) {
+          $('article.entry-content').html(md.render(text));
+          bindCheckBehavior();
+          $('li ul.task-list').parent().addClass('special-bg')
+        }).fail(function () {
+          console.error("Failed to GET checklist.md, trying again in 1 sec...")
+          setTimeout(renderChecklist, 1000)
+        });
+      }
+      renderChecklist();
+    });
+  </script>
+</html>
