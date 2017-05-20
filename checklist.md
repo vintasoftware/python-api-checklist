@@ -13,28 +13,28 @@ E.g. [python-social-auth document common use-cases](http://python-social-auth-do
   * - [ ] Don't require copy and pasting of code snippets
 - [ ] Avoid cumbersome inputs:
   * - [ ] Check if parameter name is misleading
-  E.g. In Scrapy 1.2, the send method accepts a "to" parameter as a list of strings. If client passes a single string, the method will iterate over the string, trying to send emails to each character of it. Scrapy 1.3 fixed this by accepting both a single string and a list of strings
-  * - [ ] Check if user is instantiating something just to call your API. If so, consider accepting the wrapped value
+  E.g. In Scrapy 1.2, the send method accepts a "to" parameter as a list of strings. If the client passes a single string, the method will iterate over the string, trying to send emails to each character of it. Scrapy 1.3 fixed this by accepting both a single string and a list of strings
+  * - [ ] Check if the user is instantiating something just to call your API. If so, consider accepting the wrapped value
   * - [ ] Check if it's possible to replace a custom type with a built-in one, or support both
 - [ ] Respect the [Principle of least astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment): "If a feature has a high astonishment factor, it may be necessary to redesign it"
   * - [ ] The default behavior does what clients expect?
-  * - [ ] The default behavior matches client expectations about performance, side-effects, safety, security, restrictions, etc?
+  * - [ ] The default behavior matches client expectations about performance, side-effects, safety, security, restrictions, etc.?
 - [ ] Create abstractions
   * - [ ] Draw away from the physical HOW nature of the solution to focus on the WHAT nature
   E.g. to make a simple Celery task, devs don't need to worry much about task queues, workers, message brokers, serialization, etc. They just need to use the `@app.task` decorator. The API is focused on the task definition, not on the tasks inner-workings.
-  * - [ ] Is API the abstracting something it shouldn't be? Be careful with [The Law of Leaky Abstractions](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/)
+  * - [ ] Is the API abstracting something it shouldn't be? Be careful with [The Law of Leaky Abstractions](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/)
   E.g. [RPC is almost naturally bad](https://www.joelonsoftware.com/2000/08/22/three-wrong-ideas-from-computer-science/) because it abstracts remote resources as local ones, but those should really be handled differently from local ones
 - Be Pythonic
   * - [ ] Strive for common Python idioms, try to make API calls look like built-in Python API calls
-  E.g. in Python 2, [`ConfigParser.get`](https://docs.python.org/2/library/configparser.html#ConfigParser.RawConfigParser.get) receives a `section` and `option`. This isn't natural in Python, since `get` of `dict` receives `key` and `default` value. In Python 3, this was fixed by introducing a [dict-like interface to `ConfigParser`](https://docs.python.org/3.6/library/configparser.html#mapping-protocol-access)
+  E.g. in Python 2, [`ConfigParser.get`](https://docs.python.org/2/library/configparser.html#ConfigParser.RawConfigParser.get) receives a `section` and `option`. This isn't natural in Python since `get` of `dict` receives `key` and `default` value. In Python 3, this was fixed by introducing a [dict-like interface to `ConfigParser`](https://docs.python.org/3.6/library/configparser.html#mapping-protocol-access)
 
 ## Consistency
 - [ ] Naming: is there naming consistency?
-  * - [ ] Order of terms: `str_shuffle` vs `recode_string`.
+  * - [ ] Order of terms: `string_encode` vs `decode_string`.
   * - [ ] Abbreviations: `activate_prev` vs `fetch_previous`, `bin2hex` vs `strtolower`.
   * - [ ] With or without underscore: `gettype` vs `get_class`
   * - [ ] Plurals: `values_list` vs `value_list`
-  * - [ ] Negatives: `button.enabled == True` vs `button.disabled = True`
+  * - [ ] Negatives: `button.enabled == True` vs `button.disabled == True`
 - [ ] Emptiness: is there consistency in what means the empty value? Is it the best representation?
   * - [ ] Decide what will be used as empty: `None`, `False`, `[]`, `''`, `0`, etc.
   * - [ ] Be careful with unexpected falsy values: `bool(datetime.time(0)) == False` in Python < 3.5
@@ -47,17 +47,17 @@ E.g. [python-social-auth document common use-cases](http://python-social-auth-do
 - [ ] Reduce [integration discontinuities](https://mollyrocket.com/casey/stream_0028.html)
   * - [ ] Check if classes have a [single responsibility](https://en.wikipedia.org/wiki/Single_responsibility_principle). It not, break them into multiple classes
   E.g. a class to get/set items from/to a cache should separate the behavior to connect to the cache server into another class
-  * - [ ] Check if function name has "and" or implies multiple operations. If so, consider breaking it in multiple functions. However, keep the combined one if it's used by most clients:
+  * - [ ] Check if function name has "and" or implies multiple operations. If so, consider breaking into multiple functions. However, keep the combined one if it's used by most clients:
   E.g. `print_formatted` function should be broken into two: `print` and `formatted`
-  * - [ ] Check if the API client has to copy-and-paste code to change some behavior. Provide hooks, methods to be overriden, instead.
+  * - [ ] Check if the API client has to copy-and-paste code to change some behavior. Provide hooks, methods to be overridden, instead.
   * - [ ] Check if an attribute used internally in class behavior could be a `get_something` method
   E.g. on Django REST Framework, the CursorPagination class supported only a fixed `page_size`, because it didn't have the `get_page_size` method. This was [changed](https://github.com/encode/django-rest-framework/pull/3147) by introducing the method.
   * - [ ] Avoid hiding parameters that could be useful
   E.g. the API is calling another lower-level one, but it isn't exposing some useful parameters the lower-level API supports
   * - [ ] Return everything the API client might need
   * - [ ] Pass everything the API client might need when calling it's code (when [Inversion of Control](https://en.wikipedia.org/wiki/Inversion_of_control) is in place)
-  * - [ ] Evaluate every `mock.patch` in the API tests. This indicates something isn't flexibile to be changed in runtime. Consider having parameters to change those things
-  E.g. Python's built-in [sched.scheduler](https://docs.python.org/3.6/library/sched.html) accepts `timefunc` and `delayfunc`, so the tests don't need to mock `time.monotonic` nor `time.sleep` and the clients are able to change those behaviors
+  * - [ ] Evaluate every `mock.patch` in the API tests. This indicates something isn't flexible to be changed at runtime. Consider having parameters to change those things
+  E.g. Python's built-in [sched.scheduler](https://docs.python.org/3.6/library/sched.html) accepts `timefunc` and `delayfunc`, so the tests don't need to mock `time.monotonic` nor `time.sleep` and the clients can change those behaviors
 - [ ] Create abstractions
   * - [ ] Wrap resources and functionalities common to multiple low-level implementations
   E.g. Beautiful Soup provides the same API for [multiple parsers](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#installing-a-parser)
@@ -95,7 +95,7 @@ E.g. [python-social-auth document common use-cases](http://python-social-auth-do
 - [ ] Avoid depending on order of method calls, try to use with-statement contexts instead
 - [ ] Fail-fast: crap in crap out is not a Pythonic idea
   * - [ ] Raise `ValueError` if the library receives an invalid argument, like something that overflows, has a wrong format or is in a wrong state
-  * - [ ] Raise `TypeError` if the library receives an argument with incompatible type, like a `duck` that doesn't `quack`s. But don't do it inside a `if isinstance(duck, LibDuck)` or if type(duck) == LibDuck`)! First try to call `quack`, then raise if it `TypeError` fails to give a clearer error
+  * - [ ] Raise `TypeError` if the library receives an argument with incompatible type, like a `duck` that doesn't `quack`. But don't do it inside a `if isinstance(duck, LibDuck)` or if type(duck) == LibDuck`)! First try to call `quack`, then raise if it `TypeError` fails to give a clearer error
 
 ## Conclusion
 - [ ] My API tries to make the simple easy, the complex possible and the wrong impossible
