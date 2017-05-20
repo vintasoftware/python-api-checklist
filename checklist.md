@@ -1,7 +1,8 @@
 ## Simplicity
 - [ ] Write sample client code in the README
 E.g. Pendulum's README starts with [sample code](https://github.com/sdispater/pendulum)
-- [ ] Reduce boilerplate code: count the number of lines up to first API call
+- [ ] Reduce boilerplate code: count the number of lines up to first really useful API call
+E.g. urllib2 has [lots of boilerplate code](https://gist.github.com/kennethreitz/973705) to do an HTTP request compared to Requests library
 - [ ] Document use cases
 E.g. [python-social-auth document common use-cases](http://python-social-auth-docs.readthedocs.io/en/latest/use_cases.html)
 - [ ] Practice [Progressive disclosure](https://en.wikipedia.org/wiki/Progressive_disclosure): have sane and smart defaults
