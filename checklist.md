@@ -87,7 +87,7 @@ E.g. [python-social-auth document common use-cases](http://python-social-auth-do
 
 ## Safety
 - [ ] Check for warning words like "warning", "careful", "remember to", "don't forget" in docs while describing a behavior. If they are there, consider changing behavior to be safer
-- [ ] Detect common mistake sand use Python's built-in [warnings](https://docs.python.org/3.6/library/warnings.html) module to log warnings about them
+- [ ] Detect common mistakes and use Python's built-in [warnings](https://docs.python.org/3.6/library/warnings.html) module to log warnings about them
 - [ ] Require unsafe behavior to be explicit
   * Don't show all if something isn't set, e.g., `fields = None` shouldn't mean all fields
 - [ ] Don't connect code implicitly by name or module. Use a registry or a registry-decorator
@@ -95,7 +95,7 @@ E.g. [python-social-auth document common use-cases](http://python-social-auth-do
 - [ ] Avoid depending on order of method calls, try to use with-statement contexts instead
 - [ ] Fail-fast: crap in crap out is not a Pythonic idea
   * - [ ] Raise `ValueError` if the library receives an invalid argument, like something that overflows, has a wrong format or is in a wrong state
-  * - [ ] Raise `TypeError` if the library receives an argument with incompatible type, like a `duck` that doesn't `quack`. But don't do it inside a `if isinstance(duck, LibDuck)` or if type(duck) == LibDuck`)! First try to call `quack`, then raise if it `TypeError` fails to give a clearer error
+  * - [ ] Raise `TypeError` if the library receives an argument with incompatible type, like a `duck` that doesn't `quack`. But don't do it inside a `if isinstance(duck, LibDuck)` or `if type(duck) == LibDuck`)! First try to call `quack`, then raise `TypeError` if it fails to give a clearer error
 
 ## Conclusion
 - [ ] My API tries to make the simple easy, the complex possible and the wrong impossible
