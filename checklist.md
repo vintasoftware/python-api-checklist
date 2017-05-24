@@ -15,6 +15,7 @@ E.g. [python-social-auth document common use-cases](http://python-social-auth-do
   * - [ ] Check if parameter name is misleading
   E.g. In Scrapy 1.2, the send method accepts a "to" parameter as a list of strings. If the client passes a single string, the method will iterate over the string, trying to send emails to each character of it. Scrapy 1.3 fixed this by accepting both a single string and a list of strings
   * - [ ] Check if the user is instantiating something just to call your API. If so, consider accepting the wrapped value
+  E.g. a function that only accepts file-like objects will force clients to use `StringIO` if they want to pass strings.
   * - [ ] Check if it's possible to replace a custom type with a built-in one, or support both
 - [ ] Respect the [Principle of least astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment): "If a feature has a high astonishment factor, it may be necessary to redesign it"
   * - [ ] The default behavior does what clients expect?
@@ -40,7 +41,8 @@ E.g. [python-social-auth document common use-cases](http://python-social-auth-do
   * - [ ] Be careful with unexpected falsy values: `bool(datetime.time(0)) == False` in Python < 3.5
 - [ ] Parameters: is there consistency in the order of parameters?
   E.g. `datetime.datetime(year, month, day, minute, second, microsecond)` vs `datetime.timedelta(days, seconds, microseconds, milliseconds, minutes, hours, weeks)`
-- [ ] Behavior: are similar behaviors represented similar and different behaviors represented differently?
+- [ ] Behavior: are similar behaviors represented similar and different behaviors represented differently? Asymmetry of behavior should reflect in asymmetry of form
+  E.g. Good: `numbers.sort()` in-place vs `sorted(numbers)` not-in-place.
 
 
 ## Flexibility
