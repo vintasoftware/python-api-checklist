@@ -97,7 +97,7 @@ E.g. [python-social-auth document common use-cases](http://python-social-auth-do
 - [ ] Avoid depending on order of method calls, try to use with-statement contexts instead
 - [ ] Fail-fast: crap in crap out is not a Pythonic idea
   * - [ ] Raise `ValueError` if the library receives an invalid argument, like something that overflows, has a wrong format or is in a wrong state
-  * - [ ] Raise `TypeError` if the library receives an argument with incompatible type, like a `duck` that doesn't `quack`. But don't do it inside a `if isinstance(duck, LibDuck)` or `if type(duck) == LibDuck`)! First try to call `quack`, then raise `TypeError` if it fails to give a clearer error
+  * - [ ] Raise `TypeError` if the library receives an argument with incompatible type, like a `duck` that doesn't `quack`. But don't do it inside a `if isinstance(duck, LibDuck)` or `if type(duck) == LibDuck`)! First try to call `quack`, then raise `TypeError` if it fails to give a clearer error
 
 ## Conclusion
 - [ ] My API tries to make the simple easy, the complex possible and the wrong impossible
