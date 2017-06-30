@@ -26,12 +26,13 @@ E.g. [python-social-auth document common use-cases](http://python-social-auth-do
   * - [ ] Is the API abstracting something it shouldn't be? Be careful with [The Law of Leaky Abstractions](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/)
   E.g. [RPC is almost naturally bad](https://www.joelonsoftware.com/2000/08/22/three-wrong-ideas-from-computer-science/) because it abstracts remote resources as local ones, but those should really be handled differently from local ones
 - [ ] Be Pythonic
-  * - [ ] Follow [PEP8](https://www.python.org/dev/peps/pep-0008/), the official Style Guide for Python Code. Especially important for APIs are the [Naming Conventions](https://www.python.org/dev/peps/pep-0008/#naming-conventions) and the [Programming Recommendations](https://www.python.org/dev/peps/pep-0008/#programming-recommendations). To guarantee adherence to Naming Conventions, validate your API code with [flake8](http://flake8.pycqa.org/en/latest/)
   * - [ ] Strive for common Python idioms, try to make API calls look like built-in Python API calls
   E.g. in Python 2, [`ConfigParser.get`](https://docs.python.org/2/library/configparser.html#ConfigParser.RawConfigParser.get) receives a `section` and `option`. This isn't natural in Python since `get` of `dict` receives `key` and `default` value. In Python 3, this was fixed by introducing a [dict-like interface to `ConfigParser`](https://docs.python.org/3.6/library/configparser.html#mapping-protocol-access)
 
 ## Consistency
-- [ ] Naming: is there naming consistency?
+- [ ] Naming: is there naming consistency between the API and the Python ecosystem?
+  Follow [PEP8](https://www.python.org/dev/peps/pep-0008/), the official style guide for Python code. To guarantee adherence to [Naming Conventions](https://www.python.org/dev/peps/pep-0008/#naming-conventions) and other style constraints, validate your API code with [flake8](http://flake8.pycqa.org/en/latest/)
+- [ ] Naming: is there naming consistency inside the API?
   * - [ ] Order of terms: `string_encode` vs `decode_string`.
   * - [ ] Abbreviations: `activate_prev` vs `fetch_previous`, `bin2hex` vs `strtolower`.
   * - [ ] With or without underscore: `gettype` vs `get_class`
