@@ -14,7 +14,7 @@ E.g. [python-social-auth document common use-cases](http://python-social-auth-do
 - [ ] Avoid cumbersome inputs:
   * - [ ] Check if parameter name is misleading
   E.g. In Scrapy 1.2, the send method accepts a "to" parameter as a list of strings. If the client passes a single string, the method will iterate over the string, trying to send emails to each character of it. Scrapy 1.3 fixed this by accepting both a single string and a list of strings
-  * - [ ] Check if the user is instantiating something just to call your API. If so, consider accepting the wrapped value
+  * - [ ] Check if the user is instantiating something just to call the API. If so, consider accepting the wrapped value
   E.g. a function that only accepts file-like objects will force clients to use `StringIO` if they want to pass strings.
   * - [ ] Check if it's possible to replace a custom type with a built-in one, or support both
 - [ ] Respect the [Principle of least astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment): "If a feature has a high astonishment factor, it may be necessary to redesign it"
@@ -31,7 +31,7 @@ E.g. [python-social-auth document common use-cases](http://python-social-auth-do
 
 ## Consistency
 - [ ] Naming: is there naming consistency between the API and the Python ecosystem?
-  Follow [PEP8](https://www.python.org/dev/peps/pep-0008/), the official style guide for Python code. To guarantee adherence to [Naming Conventions](https://www.python.org/dev/peps/pep-0008/#naming-conventions) and other style constraints, validate your API code with [flake8](http://flake8.pycqa.org/en/latest/)
+  Follow [PEP8](https://www.python.org/dev/peps/pep-0008/), the official style guide for Python code. To guarantee adherence to [Naming Conventions](https://www.python.org/dev/peps/pep-0008/#naming-conventions) and other style constraints, validate the API code with [flake8](http://flake8.pycqa.org/en/latest/)
 - [ ] Naming: is there naming consistency inside the API?
   * - [ ] Order of terms: `string_encode` vs `decode_string`.
   * - [ ] Abbreviations: `activate_prev` vs `fetch_previous`, `bin2hex` vs `strtolower`.
@@ -70,7 +70,7 @@ E.g. [python-social-auth document common use-cases](http://python-social-auth-do
   * - [ ] Provide the ability to get out of the abstraction cage and use directly the abstracted resources and functionalities
   E.g. Django querysets support `.extra` to combine custom SQL with ORM-generated one. It also supports `.raw`, which allow completely raw SQL queries
   * - [ ] Wrap errors that are common to multiple low-level implementations and avoid leaking them directly to the API client
-  E.g. a database connection error should be the same if your API supports multiple database engines. This helps API clients to change engines without changing much code
+  E.g. a database connection error should be the same if the API supports multiple database engines. This helps API clients to change engines without changing much code
 - [ ] Be Pythonic
   * - [ ] Use properties for simple getters and setters
   * - [ ] Use magic methods for operator overloading
