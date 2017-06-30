@@ -25,7 +25,8 @@ E.g. [python-social-auth document common use-cases](http://python-social-auth-do
   E.g. to make a simple Celery task, devs don't need to worry much about task queues, workers, message brokers, serialization, etc. They just need to use the `@app.task` decorator. The API is focused on the task definition, not on the tasks inner-workings.
   * - [ ] Is the API abstracting something it shouldn't be? Be careful with [The Law of Leaky Abstractions](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/)
   E.g. [RPC is almost naturally bad](https://www.joelonsoftware.com/2000/08/22/three-wrong-ideas-from-computer-science/) because it abstracts remote resources as local ones, but those should really be handled differently from local ones
-- Be Pythonic
+- [ ] Be Pythonic
+  * - [ ] Follow [PEP8](https://www.python.org/dev/peps/pep-0008/), the official Style Guide for Python Code. Especially important for APIs are the [Naming Conventions](https://www.python.org/dev/peps/pep-0008/#naming-conventions) and the [Programming Recommendations](https://www.python.org/dev/peps/pep-0008/#programming-recommendations). To guarantee adherence to Naming Conventions, validate your API code with [flake8](http://flake8.pycqa.org/en/latest/)
   * - [ ] Strive for common Python idioms, try to make API calls look like built-in Python API calls
   E.g. in Python 2, [`ConfigParser.get`](https://docs.python.org/2/library/configparser.html#ConfigParser.RawConfigParser.get) receives a `section` and `option`. This isn't natural in Python since `get` of `dict` receives `key` and `default` value. In Python 3, this was fixed by introducing a [dict-like interface to `ConfigParser`](https://docs.python.org/3.6/library/configparser.html#mapping-protocol-access)
 
