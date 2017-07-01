@@ -49,7 +49,7 @@ E.g. [python-social-auth document common use-cases](http://python-social-auth-do
 
 ## Flexibility
 - [ ] Reduce [integration discontinuities](https://mollyrocket.com/casey/stream_0028.html)
-  * - [ ] Check if classes have a [single responsibility](https://en.wikipedia.org/wiki/Single_responsibility_principle). It not, break them into multiple classes
+  * - [ ] Check if classes have a [single responsibility](https://en.wikipedia.org/wiki/Single_responsibility_principle). If not, break them into multiple classes
   E.g. a class to get/set items from/to a cache should separate the behavior to connect to the cache server into another class
   * - [ ] Check if function name has "and" or implies multiple operations. If so, consider breaking into multiple functions. However, keep the combined one if it's used by most clients:
   E.g. `print_formatted` function should be broken into two: `print` and `formatted`
