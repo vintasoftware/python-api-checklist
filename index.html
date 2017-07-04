@@ -146,6 +146,19 @@
     .task-list-item {
       background-color: inherit;
     }
+    .langs {
+      justify-content: center;
+      -webkit-justify-content: center;
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      margin: 0 auto;
+      text-align: center;
+      width: 500px;
+    }
+    .langs li { padding: 0 10px; }
+    .flag { height: 48px; width: 48px; }
+    li a.active { color: #356f9f; cursor: default; text-decoration: none; }
   </style>
 </head>
   <body>
@@ -166,6 +179,13 @@
                 Checklist for<br/>
                 Python libraries APIs
               </h1>
+              <ul class="langs">
+                <li>
+                  <img src="https://lipis.github.io/flag-icon-css/flags/4x3/us.svg"
+                    alt="United States of America Flag" class="flag">
+                  <a href="#" class="active" data-lang="en">English</a>
+                </li>
+              </ul>
               <p>Useful checklist for build good Python libraries APIs. Based on "<a href="https://www.youtube.com/watch?v=4mkFfce46zE" target="_blank">How to make a good library API</a>" PyCon 2017 talk.</p>
               <p>Checkboxes below are saved in localStorage. You can mark what you have and come back later.</p>
             </div>
@@ -235,20 +255,31 @@
         'linkify': false
       }).use(window.markdownitTaskLists, {enabled: true});
 
-      function renderChecklist() {
-        $.ajax('/checklist.md', {
+      function renderChecklist(lang) {
+        $.ajax('/lang/' + lang + '/checklist.md', {
           method: 'GET',
           dataType: 'text'
-        }).done(function (text) {
-          $('article.entry-content').html(md.render(text));
+        }).done(function(text) {
+          $("a[data-lang='" + lang + "']").addClass('active');
+          $("article.entry-content").html(md.render(text));
           bindCheckBehavior();
-          $('li ul.task-list').parent().addClass('special-bg')
-        }).fail(function () {
-          console.error("Failed to GET checklist.md, trying again in 1 sec...")
-          setTimeout(renderChecklist, 1000)
-        });
+          $("li ul.task-list").parent().addClass("special-bg")
+        }).fail(function() {
+          console.error("Failed to GET checklist.md, is it a valid language?");
+        })
       }
-      renderChecklist();
+
+      function defineCheckList() {
+        $("a[data-lang]").click(function() {
+          $("a[data-lang]").removeClass('active')
+          renderChecklist($(this).data('lang'))
+        })
+      }
+
+      defineCheckList();
+
+      // Default: English
+      renderChecklist('en');
     });
   </script>
 </html>
