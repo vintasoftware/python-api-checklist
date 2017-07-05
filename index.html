@@ -266,6 +266,7 @@
           $("li ul.task-list").parent().addClass("special-bg")
         }).fail(function() {
           console.error("Failed to GET checklist.md, is it a valid language?");
+          setTimeout(renderChecklist, 1000)
         })
       }
 
