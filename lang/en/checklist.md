@@ -84,7 +84,7 @@ E.g. [python-social-auth document common use-cases](http://python-social-auth-do
   * - [ ] Accept simple high-order functions for simple Inversion of Control
   E.g. `list.sort` accepts `key` as the ranker function to calculate the order
   * - [ ] For complex flows, consider function/class pipelines, inheritance or generators, in that order.
-  E.g. pipelines: [python-social-auth pipelines](python-social-auth), inheritance: [Django class-based views](https://docs.djangoproject.com/en/1.11/topics/class-based-views/), generators: [Scrapy spiders](https://doc.scrapy.org/en/latest/intro/tutorial.html)
+  E.g. pipelines: [python-social-auth pipelines](http://python-social-auth-docs.readthedocs.io/en/latest/pipeline.html?highlight=pipelines), inheritance: [Django class-based views](https://docs.djangoproject.com/en/1.11/topics/class-based-views/), generators: [Scrapy spiders](https://doc.scrapy.org/en/latest/intro/tutorial.html)
   * - [ ] Respect [duck-typing and "Easier to ask for forgiveness than permission"](https://docs.python.org/3/glossary.html#term-duck-typing)
 - [ ] Internationalize (I18N) the strings the end-user will see
 
