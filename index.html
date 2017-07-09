@@ -191,83 +191,81 @@
           <p>© 2017 - Maintained by <a href="https://www.vinta.com.br" target="_blank">Vinta Sofware</a> - Feel free to <a href="https://github.com/vintasoftware/python-api-checklist" target="_blank">contribute</a></p>
         </div>
       </div>
-
     </footer>
-  </body>
-
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-    crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"></script>
 
-  <script type="text/javascript">
-    $(function() {
-      function bindCheckBehavior() {
-        var checkedsDict = localStorage.getItem('checkedsDict');
-        if (!checkedsDict || checkedsDict === '') {
-          checkedsDict = {};
-          localStorage.setItem('checkedsDict', JSON.stringify(checkedsDict));
-        } else {
-          checkedsDict = JSON.parse(checkedsDict);
-        }
-
-        var $items = $('.entry-content input.task-list-item-checkbox');
-        $items.each(function (i, item) {
-          var itemKey = $(item).parent().text();
-          if (checkedsDict[itemKey]) {
-            $(item).attr('checked', 'checked');
+    <script type="text/javascript">
+      $(function() {
+        function bindCheckBehavior() {
+          var checkedsDict = localStorage.getItem('checkedsDict');
+          if (!checkedsDict || checkedsDict === '') {
+            checkedsDict = {};
+            localStorage.setItem('checkedsDict', JSON.stringify(checkedsDict));
+          } else {
+            checkedsDict = JSON.parse(checkedsDict);
           }
-        });
 
-        $('.entry-content input').on('change', function() {
-          var $items = $('.entry-content input');
-          var updatedCheckedsDict = {};
+          var $items = $('.entry-content input.task-list-item-checkbox');
           $items.each(function (i, item) {
             var itemKey = $(item).parent().text();
-            if (this.checked) {
-              updatedCheckedsDict[itemKey] = true;
+            if (checkedsDict[itemKey]) {
+              $(item).attr('checked', 'checked');
             }
           });
 
-          localStorage.setItem('checkedsDict', JSON.stringify(updatedCheckedsDict));
-        });
-      }
+          $('.entry-content input').on('change', function() {
+            var $items = $('.entry-content input');
+            var updatedCheckedsDict = {};
+            $items.each(function (i, item) {
+              var itemKey = $(item).parent().text();
+              if (this.checked) {
+                updatedCheckedsDict[itemKey] = true;
+              }
+            });
 
-      var md = window.markdownit({
-        'breaks': true,
-        'linkify': false
-      }).use(window.markdownitTaskLists, {enabled: true});
+            localStorage.setItem('checkedsDict', JSON.stringify(updatedCheckedsDict));
+          });
+        }
 
-      function renderChecklist(lang) {
-        $.ajax('/lang/' + lang + '/checklist.md', {
-          method: 'GET',
-          dataType: 'text'
-        }).done(function(text) {
-          $("a[data-lang='" + lang + "']").addClass('active');
-          $("article.entry-content").html(md.render(text));
-          bindCheckBehavior();
-          $("li ul.task-list").parent().addClass("special-bg")
-          var $title = $(".markdown-body h1").html().replace("{nl}", "<br />")
-          $(".markdown-body h1").html($title)
-        }).fail(function() {
-          console.error("Failed to GET checklist.md, is it a valid language?");
-          setTimeout(renderChecklist, 1000)
-        })
-      }
+        var md = window.markdownit({
+          'breaks': true,
+          'linkify': false
+        }).use(window.markdownitTaskLists, {enabled: true});
 
-      function defineCheckList() {
-        $("a[data-lang]").click(function() {
-          $("a[data-lang]").removeClass('active')
-          renderChecklist($(this).data('lang'))
-        })
-      }
+        function renderChecklist(lang) {
+          $.ajax('/lang/' + lang + '/checklist.md', {
+            method: 'GET',
+            dataType: 'text'
+          }).done(function(text) {
+            $("a[data-lang='" + lang + "']").addClass('active');
+            $("article.entry-content").html(md.render(text));
+            bindCheckBehavior();
+            $("li ul.task-list").parent().addClass("special-bg")
+            var $title = $(".markdown-body h1").html().replace("{nl}", "<br />")
+            $(".markdown-body h1").html($title)
+          }).fail(function() {
+            console.error("Failed to GET checklist.md, is it a valid language?");
+            setTimeout(renderChecklist, 1000)
+          })
+        }
 
-      defineCheckList();
+        function defineCheckList() {
+          $("a[data-lang]").click(function() {
+            $("a[data-lang]").removeClass('active')
+            renderChecklist($(this).data('lang'))
+          })
+        }
 
-      // Default: English
-      renderChecklist('en');
-    });
-  </script>
+        defineCheckList();
+
+        // Default: English
+        renderChecklist('en');
+      });
+    </script>
+  </body>
 </html>
