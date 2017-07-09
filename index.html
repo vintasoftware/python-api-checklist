@@ -55,9 +55,7 @@
       line-height: normal;
     }
 
-    .checklist {
-      display: inline-block;
-    }
+    .checklist { display: inline-block; }
 
     .checklist .description p {
       font-size: 20px;
@@ -93,9 +91,7 @@
       background: #646464;
     }
 
-    footer a {
-      color: #ff9800;
-    }
+    footer a { color: #ff9800; }
 
     footer p {
       text-align: center;
@@ -104,18 +100,14 @@
       font-size: 14px;
     }
 
-    h1, h2, p {
-      color: #356f9f;
-    }
+    h1, h2, p { color: #356f9f; }
 
     li {
       list-style: none;
       margin-bottom: 2rem;
     }
 
-    p {
-      font-size: 25px;
-    }
+    p { font-size: 25px; }
 
     a {
       color: #ca6509;
@@ -143,18 +135,16 @@
       margin-top: 2rem;
     }
 
-    .task-list-item {
-      background-color: inherit;
-    }
+    .task-list-item { background-color: inherit; }
     .langs {
-      justify-content: center;
       -webkit-justify-content: center;
+      justify-content: center;
       display: -webkit-flex;
       display: -ms-flex;
       display: flex;
       margin: 0 auto;
       text-align: center;
-      width: 500px;
+      width: 100%;
     }
     .langs li { padding: 0 10px; }
     .flag { height: 48px; width: 48px; }
@@ -174,11 +164,7 @@
             <img src="/assets/python-api-checklist.png" alt="Python API checklist">
           </div>
           <div class="row">
-            <div class="description col-md-offset-1 col-md-10">
-              <h1>
-                Checklist for<br/>
-                Python libraries APIs
-              </h1>
+            <div class="checklist-content col-md-offset-1 col-md-10">
               <ul class="langs">
                 <li>
                   <img src="https://lipis.github.io/flag-icon-css/flags/4x3/us.svg"
@@ -191,13 +177,7 @@
                   <a href="#" data-lang="kr">한국어</a>
                 </li>
               </ul>
-              <p>Useful checklist for build good Python libraries APIs. Based on "<a href="https://www.youtube.com/watch?v=4mkFfce46zE" target="_blank">How to make a good library API</a>" PyCon 2017 talk.</p>
-              <p>Checkboxes below are saved in localStorage. You can mark what you have and come back later.</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="checklist-content col-md-offset-1 col-md-10">
-              <article class="markdown-body entry-content" itemprop="text">
+              <article class="markdown-body entry-content description" itemprop="text">
                 <div>Loading...</div>
               </article>
             </div>
@@ -269,6 +249,8 @@
           $("article.entry-content").html(md.render(text));
           bindCheckBehavior();
           $("li ul.task-list").parent().addClass("special-bg")
+          var $title = $(".markdown-body h1").html().replace("{nl}", "<br />")
+          $(".markdown-body h1").html($title)
         }).fail(function() {
           console.error("Failed to GET checklist.md, is it a valid language?");
           setTimeout(renderChecklist, 1000)

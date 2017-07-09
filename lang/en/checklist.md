@@ -1,3 +1,8 @@
+# Checklist for {nl} Python libraries APIs
+
+Useful checklist for build good Python libraries APIs. Based on ["How to make a good library API"](https://www.youtube.com/watch?v=4mkFfce46zE) PyCon 2017 talk.
+
+Checkboxes below are saved in localStorage. You can mark what you have and come back later.
 ## Simplicity
 - [ ] Write sample client code in the README
 E.g. Pendulum's README starts with [sample code](https://github.com/sdispater/pendulum)
