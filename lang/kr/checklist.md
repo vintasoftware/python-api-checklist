@@ -91,7 +91,7 @@
   * - [ ] 간단한 제어의 역전 (IoC)를 위해 간단한 고차원 함수를 허용하라
           예시: `list.sort`는 순서를 계산하기 위한 랭커함수로써 `key` 파라미터를 받는다
   * - [ ] 복잡한 흐름의 경우 함수/클래스 파이프 라인, 상속 또는 제너레이터를이 순서대로 고려하라
-          사례: 파이프라인: [python-social-auth pipelines](python-social-auth), 상속: [Django class-based views](https://docs.djangoproject.com/en/1.11/topics/class-based-views/), 제너레이터: [Scrapy spiders](https://doc.scrapy.org/en/latest/intro/tutorial.html)
+          사례: 파이프라인: [python-social-auth pipelines](http://python-social-auth-docs.readthedocs.io/en/latest/pipeline.html?highlight=pipelines), 상속: [Django class-based views](https://docs.djangoproject.com/en/1.11/topics/class-based-views/), 제너레이터: [Scrapy spiders](https://doc.scrapy.org/en/latest/intro/tutorial.html)
   * - [ ] [덕 타이핑과 "허가보다 용서를 구하는 것이 더 쉽다"](https://docs.python.org/3/glossary.html#term-duck-typing)를 존중하라
 
 - [ ] 최종 사용자가 볼 문자열을 국제화(I18N, Internationalization)하라
