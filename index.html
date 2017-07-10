@@ -193,19 +193,21 @@
       </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
       integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
       crossorigin="anonymous"></script>
 
     <script type="text/javascript">
       $(function() {
-        function bindCheckBehavior() {
-          var checkedsDict = localStorage.getItem('checkedsDict');
+        function bindCheckBehavior(lang) {
+          var langSuffix = lang === 'en' ? '' : lang;
+          var checkedsDictKey = 'checkedsDict' + langSuffix;
+          var checkedsDict = localStorage.getItem(checkedsDictKey);
           if (!checkedsDict || checkedsDict === '') {
             checkedsDict = {};
-            localStorage.setItem('checkedsDict', JSON.stringify(checkedsDict));
+            localStorage.setItem(checkedsDictKey, JSON.stringify(checkedsDict));
           } else {
             checkedsDict = JSON.parse(checkedsDict);
           }
@@ -228,7 +230,7 @@
               }
             });
 
-            localStorage.setItem('checkedsDict', JSON.stringify(updatedCheckedsDict));
+            localStorage.setItem(checkedsDictKey, JSON.stringify(updatedCheckedsDict));
           });
         }
 
@@ -244,24 +246,24 @@
           }).done(function(text) {
             $("a[data-lang='" + lang + "']").addClass('active');
             $("article.entry-content").html(md.render(text));
-            bindCheckBehavior();
-            $("li ul.task-list").parent().addClass("special-bg")
-            var $title = $(".markdown-body h1").html().replace("{nl}", "<br />")
-            $(".markdown-body h1").html($title)
+            bindCheckBehavior(lang);
+            $("li ul.task-list").parent().addClass("special-bg");
+            var $title = $(".markdown-body h1").html().replace("{nl}", "<br />");
+            $(".markdown-body h1").html($title);
           }).fail(function() {
             console.error("Failed to GET checklist.md, is it a valid language?");
-            setTimeout(renderChecklist, 1000)
+            setTimeout(renderChecklist, 1000);
           })
         }
 
-        function defineCheckList() {
-          $("a[data-lang]").click(function() {
-            $("a[data-lang]").removeClass('active')
-            renderChecklist($(this).data('lang'))
-          })
+        function defineChecklist() {
+          $('a[data-lang]').click(function() {
+            $('a[data-lang]').removeClass('active');
+            renderChecklist($(this).data('lang'));
+          });
         }
 
-        defineCheckList();
+        defineChecklist();
 
         // Default: English
         renderChecklist('en');
