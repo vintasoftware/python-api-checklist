@@ -43,12 +43,12 @@ E.g. [python-social-auth document common use-cases](http://python-social-auth-do
   * - [ ] With or without underscore: `gettype` vs `get_class`
   * - [ ] Plurals: `values_list` vs `value_list`
   * - [ ] Negatives: `button.enabled == True` vs `button.disabled == True`
-- [ ] Emptiness: is there consistency in what means the empty value? Is it the best representation?
+- [ ] Emptiness: is there consistency in the meaning of the empty value? Is it the best representation?
   * - [ ] Decide what will be used as empty: `None`, `False`, `[]`, `''`, `0`, etc.
   * - [ ] Be careful with unexpected falsy values: `bool(datetime.time(0)) == False` in Python < 3.5
 - [ ] Parameters: is there consistency in the order of parameters?
   E.g. `datetime.datetime(year, month, day, minute, second, microsecond)` vs `datetime.timedelta(days, seconds, microseconds, milliseconds, minutes, hours, weeks)`
-- [ ] Behavior: are similar behaviors represented similar and different behaviors represented differently? Asymmetry of behavior should reflect in asymmetry of form
+- [ ] Behavior: is there consistency in the representation of similar and different behaviors? Asymmetry of behavior should reflect in asymmetry of form
   E.g. Good: `numbers.sort()` in-place vs `sorted(numbers)` not-in-place.
 
 
@@ -72,7 +72,7 @@ E.g. [python-social-auth document common use-cases](http://python-social-auth-do
   E.g. Beautiful Soup provides the same API for [multiple parsers](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#installing-a-parser)
   * - [ ] Provide multiple abstraction levels, from the most simple to the most customizable
   E.g. Celery supports both the `@app.task` decorator and a [custom task class](http://docs.celeryproject.org/en/latest/userguide/tasks.html#custom-task-classes) that inherits from `celery.Task`
-  * - [ ] Provide the ability to get out of the abstraction cage and use directly the abstracted resources and functionalities
+  * - [ ] Provide the ability to get out of the abstraction cage and use the abstracted resources and functionalities directly
   E.g. Django querysets support `.extra` to combine custom SQL with ORM-generated one. It also supports `.raw`, which allow completely raw SQL queries
   * - [ ] Wrap errors that are common to multiple low-level implementations and avoid leaking them directly to the API client
   E.g. a database connection error should be the same if the API supports multiple database engines. This helps API clients to change engines without changing much code
