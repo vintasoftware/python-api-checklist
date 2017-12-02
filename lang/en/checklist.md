@@ -1,11 +1,12 @@
-# Checklist for {nl} Python libraries APIs
+# Checklist for {nl} Python library APIs
 
-Useful checklist for build good Python libraries APIs. Based on ["How to make a good library API"](https://www.youtube.com/watch?v=4mkFfce46zE) PyCon 2017 talk.
+Useful checklist for building good Python library APIs. Based on ["How to make a good library API"](https://www.youtube.com/watch?v=4mkFfce46zE) PyCon 2017 talk.
 
 Checkboxes below are saved in localStorage. You can mark what you have and come back later.
+
 ## Simplicity
 - [ ] Write sample client code in the README
-E.g. Pendulum's README starts with [sample code](https://github.com/sdispater/pendulum)
+  * E.g. Pendulum's README starts with [sample code](https://github.com/sdispater/pendulum)
 - [ ] Reduce boilerplate code: count the number of lines up to first really useful API call
 E.g. urllib2 has [lots of boilerplate code](https://gist.github.com/kennethreitz/973705) to do an HTTP request compared to Requests library
 - [ ] Document use cases
@@ -92,7 +93,6 @@ E.g. [python-social-auth document common use-cases](http://python-social-auth-do
   E.g. pipelines: [python-social-auth pipelines](http://python-social-auth-docs.readthedocs.io/en/latest/pipeline.html?highlight=pipelines), inheritance: [Django class-based views](https://docs.djangoproject.com/en/1.11/topics/class-based-views/), generators: [Scrapy spiders](https://doc.scrapy.org/en/latest/intro/tutorial.html)
   * - [ ] Respect [duck-typing and "Easier to ask for forgiveness than permission"](https://docs.python.org/3/glossary.html#term-duck-typing)
 - [ ] Internationalize (I18N) the strings the end-user will see
-
 
 ## Safety
 - [ ] Check for warning words like "warning", "careful", "remember to", "don't forget" in docs while describing a behavior. If they are there, consider changing behavior to be safer
