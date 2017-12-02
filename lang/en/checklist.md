@@ -8,14 +8,14 @@ Checkboxes below are saved in localStorage. You can mark what you have and come 
 - [ ] Write sample client code in the README
   * E.g. Pendulum's README starts with [sample code](https://github.com/sdispater/pendulum)
 - [ ] Reduce boilerplate code: count the number of lines up to first really useful API call
-E.g. urllib2 has [lots of boilerplate code](https://gist.github.com/kennethreitz/973705) to do an HTTP request compared to Requests library
+  * E.g. urllib2 has [lots of boilerplate code](https://gist.github.com/kennethreitz/973705) to do an HTTP request compared to Requests library
 - [ ] Document use cases
-E.g. [python-social-auth document common use-cases](http://python-social-auth-docs.readthedocs.io/en/latest/use_cases.html)
+  * E.g. [python-social-auth document common use-cases](http://python-social-auth-docs.readthedocs.io/en/latest/use_cases.html)
 - [ ] Practice [Progressive disclosure](https://en.wikipedia.org/wiki/Progressive_disclosure): have sane and smart defaults
   * - [ ] Have default arguments and decide their values according to the most common use cases
   * - [ ] Have default settings and decide their values according to the most common use cases
   * - [ ] Decide argument order by listing the most used ones first and grouping related ones together
-  E.g. JavaScript [`history.pushState`](https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method) has bad default argument order: `state, title, URL`. Most API clients just want to add a URL to the history and they're forced to specify state and title.
+      * E.g. JavaScript [`history.pushState`](https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method) has bad default argument order: `state, title, URL`. Most API clients just want to add a URL to the history and they're forced to specify state and title.
   * - [ ] Don't require copy and pasting of code snippets
 - [ ] Avoid cumbersome inputs:
   * - [ ] Check if parameter name is misleading
