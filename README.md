@@ -8,3 +8,7 @@ Feel free to contribute!
 
 ## How to run locally
 Run `python -m http.server` and go to `http://localhost:8000/`
+
+
+## How to contribute
+Edit the Markdown `.md` files inside `lang` directory.
